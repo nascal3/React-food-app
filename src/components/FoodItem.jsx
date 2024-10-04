@@ -3,6 +3,7 @@ export default function FoodItem({food}) {
         <>
             <h1>{food.title}</h1>
             <img src={food.image} alt={food.title}/>
+            <button>View Recipe</button>
         </>
     )
 }
