@@ -1,4 +1,5 @@
-import {useEffect, useState} from "react";
+import {useEffect, useState} from "react"
+import styles from "./foodDetails.module.css"
 
 const API_KEY = 'ae9acc90cbe842faa02e9cc3b209ac51'
 
@@ -23,31 +24,29 @@ export default function FoodDetails({foodId}) {
     }, [foodId])
 
     return(
-        <div>
-            <div>
-                <h1>{food?.title}</h1>
-                <img src={food?.image} alt={food?.title}/>
+        <div className={styles.card}>
+            <h1>{food?.title}</h1>
+            <div className={styles.imageContainer} >
+                <img className={styles.image} src={food?.image} alt={food?.title}/>
             </div>
-            <div>
+            <div className={styles.details}>
                 <span>⌚<strong>{food.readyInMinutes} Minutes</strong></span>
-                <span>👪<strong>Serves: {food.servings}</strong></span>
+                <span>👪<strong>Serves {food.servings}</strong></span>
                 <span>{food?.vegetarian ? "🥕 Vegetarian" : "🥩 Non-Vegetarian"}</span>
                 <span>{food?.vegan ? "🍀 Vegan" : ""}</span>
-                <div>${food?.pricePerServing/100} per serving</div>
+                <div>${food?.pricePerServing / 100} per serving</div>
             </div>
-
             <div>
                 <h2>Instructions</h2>
                 {isLoading ? <p>Loading...</p> :
                     food.analyzedInstructions[0]?.steps.map(step => (
-                        <div key={step.number}>
-                            <h4>Step {step.number}</h4>
+                        <div className={styles.instructions} key={step.number}>
+                            <li>Step {step.number}</li>
                             <p>{step.step}</p>
                         </div>
                     ))
                 }
             </div>
-
         </div>
 
     )

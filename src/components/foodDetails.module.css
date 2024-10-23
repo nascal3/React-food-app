@@ -1,0 +1,29 @@
+.card {
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgb(0, 0, 0, 0.1);
+    padding: 10px;
+}
+.imageContainer {
+    margin-bottom: 10px;
+}
+.image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.details span {
+    margin-right: 20px;
+}
+.details div {
+    margin-top: 10px;
+}
+.instructions li {
+    font-style: italic;
+    font-size: 15px;
+    font-weight: 600;
+}
+.instructions p {
+    font-size: 15px;
+    margin: 2px 0 10px 15px;
+}
