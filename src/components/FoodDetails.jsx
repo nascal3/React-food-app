@@ -1,4 +1,5 @@
 import {useEffect, useState} from "react"
+import FoodIngredients from "./FoodIngredients.jsx";
 import styles from "./foodDetails.module.css"
 
 const API_KEY = 'ae9acc90cbe842faa02e9cc3b209ac51'
@@ -36,21 +37,7 @@ export default function FoodDetails({foodId}) {
                 <span>{food?.vegan ? "🍀 Vegan" : ""}</span>
                 <div>${food?.pricePerServing / 100} per serving</div>
             </div>
-            <div>
-                <h2>Ingredients</h2>
-                {isLoading ? <p>Loading...</p> :
-                    food.extendedIngredients.map(ingredient => (
-                        <div className={styles.ingredients} key={ingredient.id}>
-                            <div>
-                                <img
-                                    src={`https://spoonacular.com/cdn/ingredients_100x100/${ingredient.image}`}
-                                    alt={ingredient.original}/>
-                                {ingredient.original}
-                            </div>
-                        </div>
-                    ))
-                }
-            </div>
+            <FoodIngredients ingredients={food?.extendedIngredients} isLoading={isLoading}/>
             <div>
                 <h2>Instructions</h2>
                 {isLoading ? <p>Loading...</p> :
