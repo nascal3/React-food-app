@@ -37,6 +37,21 @@ export default function FoodDetails({foodId}) {
                 <div>${food?.pricePerServing / 100} per serving</div>
             </div>
             <div>
+                <h2>Ingredients</h2>
+                {isLoading ? <p>Loading...</p> :
+                    food.extendedIngredients.map(ingredient => (
+                        <div className={styles.ingredients} key={ingredient.id}>
+                            <div>
+                                <img
+                                    src={`https://spoonacular.com/cdn/ingredients_100x100/${ingredient.image}`}
+                                    alt={ingredient.original}/>
+                                {ingredient.original}
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+            <div>
                 <h2>Instructions</h2>
                 {isLoading ? <p>Loading...</p> :
                     food.analyzedInstructions[0]?.steps.map(step => (

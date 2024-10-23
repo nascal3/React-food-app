@@ -27,3 +27,11 @@
     font-size: 15px;
     margin: 2px 0 10px 15px;
 }
+.ingredients div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.ingredients div img {
+    margin-right: 10px;
+}
